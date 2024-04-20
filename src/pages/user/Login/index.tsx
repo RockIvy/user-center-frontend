@@ -1,14 +1,13 @@
 import Footer from '@/components/Footer';
-import {login} from '@/services/ant-design-pro/api';
-import {LockOutlined, UserOutlined,} from '@ant-design/icons';
-import {LoginForm, ProFormCheckbox, ProFormText,} from '@ant-design/pro-components';
-import {Alert, Divider, message, Space, Tabs} from 'antd';
-import React, {useState} from 'react';
-import {history, useModel} from 'umi';
+import { login } from '@/services/ant-design-pro/api';
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { LoginForm, ProFormCheckbox, ProFormText } from '@ant-design/pro-components';
+import { Alert, Divider, message, Space, Tabs } from 'antd';
+import React, { useState } from 'react';
+import { history, useModel } from 'umi';
 import styles from './index.less';
-import {PLANTE_LINK, SYSTEM_LOGO} from "@/constants";
+import { PLANTE_LINK, SYSTEM_LOGO } from '@/constants';
 import { Link } from 'react-router-dom';
-
 
 const LoginMessage: React.FC<{
   content: string;
@@ -70,9 +69,13 @@ const Login: React.FC = () => {
     <div className={styles.container}>
       <div className={styles.content}>
         <LoginForm
-          logo={<img alt="logo" src={SYSTEM_LOGO} />}
-          title="MYA 用户枢纽"
-          subTitle={<a href={PLANTE_LINK} target={"_blank"} rel="noreferrer" >Make Your Aspirations</a>}
+          logo={<img alt="logo" src="/pulse.svg" />}
+          title="MYA Pulse"
+          subTitle={
+            <a href={PLANTE_LINK} target={'_blank'} rel="noreferrer">
+              Make Your Aspirations
+            </a>
+          }
           initialValues={{
             autoLogin: true,
           }}
@@ -118,9 +121,8 @@ const Login: React.FC = () => {
                   {
                     min: 8,
                     message: '长度不能小于8',
-                  }
-                ]
-              }
+                  },
+                ]}
               />
             </>
           )}
@@ -133,17 +135,18 @@ const Login: React.FC = () => {
               <ProFormCheckbox noStyle name="autoLogin">
                 自动登录
               </ProFormCheckbox>
-            <Link to="/user/register">新用户注册</Link>
-            <a
-              style={{
-                float: 'right',
-              }}
-              href={PLANTE_LINK}
-              target={"_blank"} rel="noreferrer"
-            >
-              忘记密码
-            </a>
-          </Space>
+              <Link to="/user/register">新用户注册</Link>
+              <a
+                style={{
+                  float: 'right',
+                }}
+                href={PLANTE_LINK}
+                target={'_blank'}
+                rel="noreferrer"
+              >
+                忘记密码
+              </a>
+            </Space>
           </div>
         </LoginForm>
       </div>

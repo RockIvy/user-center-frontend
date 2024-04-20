@@ -1,8 +1,8 @@
 import { GithubOutlined } from '@ant-design/icons';
 import { DefaultFooter } from '@ant-design/pro-components';
-import {PLANTE_LINK} from "@/constants";
+import { PLANTE_LINK } from '@/constants';
 const Footer: React.FC = () => {
-  const defaultMessage = 'yupi出品';
+  const defaultMessage = 'ivy出品';
   const currentYear = new Date().getFullYear();
   return (
     <DefaultFooter
@@ -16,7 +16,11 @@ const Footer: React.FC = () => {
         },
         {
           key: 'github',
-          title: <><GithubOutlined /> 我的 Github </>,
+          title: (
+            <>
+              <GithubOutlined /> 我的 Github{' '}
+            </>
+          ),
           href: 'https://github.com/RockIvy',
           blankTarget: true,
         },
