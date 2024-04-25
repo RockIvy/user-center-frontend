@@ -6,7 +6,7 @@ import { Alert, Divider, message, Space, Tabs } from 'antd';
 import React, { useState } from 'react';
 import { history, useModel } from 'umi';
 import styles from './index.less';
-import { PLANTE_LINK, SYSTEM_LOGO } from '@/constants';
+import { PLANTE_LINK } from '@/constants';
 import { Link } from 'react-router-dom';
 
 const LoginMessage: React.FC<{
@@ -63,8 +63,6 @@ const Login: React.FC = () => {
     }
   };
   const { status, type: loginType } = userLoginState;
-  // @ts-ignore
-  // @ts-ignore
   return (
     <div className={styles.container}>
       <div className={styles.content}>

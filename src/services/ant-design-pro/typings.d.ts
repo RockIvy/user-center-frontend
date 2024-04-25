@@ -3,26 +3,26 @@
 
 declare namespace API {
   type CurrentUser = {
-    id: number,
-    username: string,
-    userAccount: string,
-    avatarUrl?: string,
-    gender: number,
-    phone: string,
-    email: string,
-    planetCode:string,
-    userStatus: number,
-    userRole: number,
+    id: number;
+    username: string;
+    userAccount: string;
+    avatarUrl?: string;
+    gender: number;
+    phone: string;
+    email: string;
+    planetCode: string;
+    userStatus: number;
+    userRole: number;
     createTime: Date;
   };
 
   //用于对接后端的返回类
   type BaseResponse<T> = {
-    code:number,
-    data:T,
-    message:string,
-    description:string,
-  }
+    code: number;
+    data: T;
+    message: string;
+    description: string;
+  };
 
   type LoginResult = {
     status?: string;
@@ -110,5 +110,121 @@ declare namespace API {
     datetime?: string;
     description?: string;
     type?: NoticeIconItemType;
+  };
+
+  /**
+   * 用户删除请求
+   */
+  interface UserDeleteRequest {
+    id: number;
+  }
+
+  /**
+   * 用户更新请求
+   */
+  interface UserUpdateRequest {
+    id: number;
+    username?: string;
+    userAccount?: string;
+    avatarUrl?: string;
+    gender?: number;
+    userRole?: number;
+    email?: string;
+    phone?: string;
+  }
+
+  /**
+   * 用户创建请求
+   */
+  interface UserAddRequest {
+    username: string;
+    userAccount: string;
+    avatarUrl?: string;
+    userRole: number;
+  }
+
+  /**
+   * 帖子类
+   */
+  type Post = {
+    id: number;
+    content: string;
+    photo: string;
+    reviewStatus: number;
+    reviewMessage?: string;
+    viewNum: number;
+    thumbNum: number;
+    userId: number;
+    createTime: Date;
+    updateTime: Date;
+  };
+
+  /**
+   * 帖子和用户类
+   */
+  type PostWithUser = {
+    id: number;
+    content: string;
+    photo: string;
+    reviewStatus: number;
+    reviewMessage?: string;
+    viewNum: number;
+    thumbNum: number;
+    userId: number;
+    createTime: Date;
+    updateTime: Date;
+    user: CurrentUser;
+    hasThumb: boolean;
+  };
+
+  /**
+   * 帖子删除请求
+   */
+  interface PostDeleteRequest {
+    id: number;
+  }
+  /**
+   * 帖子创建请求
+   */
+  interface PostAddRequest {
+    content: string;
+    photo: string;
+    userId: number;
+  }
+  /**
+   * 帖子更新请求
+   */
+  type PostUpdateRequest = {
+    id: number;
+    content?: string;
+    photo?: string;
+    reviewStatus?: number;
+    reviewMessage?: string;
+    viewNum?: number;
+    thumbNum?: number;
+    userId?: number;
+    createTime?: Date;
+    updateTime?: Date;
+  };
+
+  /**
+   * 帖子点赞请求
+   */
+  interface PostDoThumbRequest {
+    postId: number;
+  }
+
+  /**
+   * 视图
+   */
+  interface PostVO extends PostWithUser {
+    hasThumb: boolean;
+  }
+
+  type RuleList = {
+    data?: RuleListItem[];
+    /** 列表的内容总数 */
+    total?: number;
+    success?: boolean;
   };
 }
