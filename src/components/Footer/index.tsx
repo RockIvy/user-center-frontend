@@ -1,6 +1,5 @@
 import { GithubOutlined } from '@ant-design/icons';
 import { DefaultFooter } from '@ant-design/pro-components';
-import { PLANTE_LINK } from '@/constants';
 const Footer: React.FC = () => {
   const defaultMessage = 'ivy出品';
   const currentYear = new Date().getFullYear();
@@ -8,12 +7,12 @@ const Footer: React.FC = () => {
     <DefaultFooter
       copyright={`${currentYear} ${defaultMessage}`}
       links={[
-        {
-          key: 'planet',
-          title: '知识星球',
-          href: PLANTE_LINK,
-          blankTarget: true,
-        },
+        // {
+        //   key: 'planet',
+        //   title: '知识星球',
+        //   href: PLANTE_LINK,
+        //   blankTarget: true,
+        // },
         {
           key: 'github',
           title: (
@@ -25,9 +24,9 @@ const Footer: React.FC = () => {
           blankTarget: true,
         },
         {
-          key: 'codeNav',
-          title: '编程导航',
-          href: 'https://www.code-nav.cn/',
+          key: 'beian',
+          title: '鲁ICP备2024089366号',
+          href: 'https://beian.miit.gov.cn',
           blankTarget: true,
         },
       ]}
